@@ -27,6 +27,15 @@ a {
   box-sizing: border-box;
 }
 
+h1,h2,h3,h4,h5,h6{
+  margin: 0px;
+}
+
+.text-cursive{
+  color: var(--text-light);
+  font-style: italic;
+}
+
 .container {
   max-width: 960px;
   padding: var(--size-4);

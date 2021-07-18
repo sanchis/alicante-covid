@@ -1,13 +1,13 @@
-import NavBar from 'components/navbar'
-// import Header from 'components/header'
+// import NavBar from 'components/navbar'
+import Header from 'components/header'
 import NewInfectedChart from 'components/charts/NewInfectedChart'
 import { getNewInfected } from 'utils/csvExtractor'
 
 export default function Home ({ newInfected }) {
   return (
     <>
-      <NavBar />
-      {/* <Header /> */}
+      {/* <NavBar /> */}
+      <Header />
       <main>
         <div className='container'>
           <NewInfectedChart newInfected={newInfected} />

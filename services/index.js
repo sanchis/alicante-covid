@@ -1,10 +1,8 @@
-import { parseString } from '@fast-csv/parse'
 import axios from 'axios'
-import { isBefore, parse, subMonths } from 'date-fns'
-
-function dateParse (date) {
-  return parse(date, 'yyyy-MM-dd', new Date())
-}
+import { validCodMunicipio } from 'config/validCodMunicipio'
+import { isBefore, subMonths } from 'date-fns'
+import { extrarCsvData } from 'utils/csv'
+import { dateParse } from 'utils/date'
 
 export function getNewInfected () {
   if (!process.env.NEW_INFECTED_URL) {
@@ -49,20 +47,25 @@ export function getNewInfected () {
     )
 }
 
-function extrarCsvData (csvData, columns, extractColumns = []) {
-  const result = []
-  return new Promise((resolve) =>
-    parseString(csvData, {
-      delimiter: ',',
-      headers: columns,
-      renameHeaders: true,
-      skipRows: 0
+export function getMunicipalitiesData () {
+  const result = {
+    lastUpdate: new Date().toISOString(),
+    municipalities: []
+  }
+  if (!process.env.MUNICIPALITIES_URL) {
+    return result
+  }
+  return axios.get(process.env.MUNICIPALITIES_URL)
+    .then(response => response.data.records)
+    .then(records => {
+      result.municipalities = records.filter(record => validCodMunicipio.indexOf(record[1]) > 0)
+        .map(record =>
+          ({
+            name: record[2],
+            pcrPositives: record[5],
+            incidencia: Number(record[6].replace(',', '.'))
+          })
+        )
+      return result
     })
-      .on('data', (data) => {
-        const obj = data
-        Object.keys(obj).filter(key => !extractColumns.includes(key)).forEach(key => delete obj[key])
-        result.push(obj)
-      })
-      .on('end', () => resolve(result))
-  )
 }

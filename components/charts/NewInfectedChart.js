@@ -12,9 +12,7 @@ export default function NewInfectedChart ({ newInfected }) {
         Número de hospitalizaciones, número de ingresos en UCI y número de defunciones.
       </p>
       <p className='text-cursive'>
-        Ultima actualizacion: {formatRelative(parseISO(newInfected.lastUpdate), new Date(), {
-        locale: es
-      })}
+        Ultima actualización: {formatRelative(parseISO(newInfected.lastUpdate), new Date(), { locale: es })}
       </p>
       <Line
         data={{

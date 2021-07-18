@@ -1,0 +1,33 @@
+.header {
+    margin-top: var(--size-1);
+    margin-bottom: var(--size-4);
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    grid-gap: var(--size-4);
+}
+
+
+.extremeRisk{
+    color: var(--danger);
+}
+.hightRisk{
+    color: var(--warning);
+}
+.lowRisk{
+    color: var(--info);
+}
+.noRisk{
+    color: var(--success);
+}
+
+.descriptionLabel{
+    margin-top: 0px;
+    display: block;
+    margin-bottom: var(--size-7);
+}

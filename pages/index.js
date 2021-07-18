@@ -1,9 +1,10 @@
 // import NavBar from 'components/navbar'
 import Header from 'components/header'
 import NewInfectedChart from 'components/charts/NewInfectedChart'
-import { getNewInfected } from 'utils/csvExtractor'
+import MunicipalitiesList from 'components/municipalitiesList'
+import { getMunicipalitiesData, getNewInfected } from 'services'
 
-export default function Home ({ newInfected }) {
+export default function Home ({ newInfected, municipalitiesData }) {
   return (
     <>
       {/* <NavBar /> */}
@@ -11,6 +12,7 @@ export default function Home ({ newInfected }) {
       <main>
         <div className='container'>
           <NewInfectedChart newInfected={newInfected} />
+          <MunicipalitiesList municipalitiesData={municipalitiesData} />
         </div>
       </main>
     </>
@@ -18,10 +20,11 @@ export default function Home ({ newInfected }) {
 }
 
 export async function getStaticProps () {
-  const newInfected = await getNewInfected()
+  const [newInfected, municipalitiesData] = await Promise.all([getNewInfected(), getMunicipalitiesData()])
   return {
     props: {
-      newInfected
+      newInfected,
+      municipalitiesData
     },
     revalidate: Number(process.env.REVALIDATE_INFECTED) || 1200
   }

@@ -23,6 +23,6 @@ export async function getStaticProps () {
     props: {
       newInfected
     },
-    revalidate: process.env.REVALIDATE_INFECTED || 1200
+    revalidate: Number(process.env.REVALIDATE_INFECTED) || 1200
   }
 }

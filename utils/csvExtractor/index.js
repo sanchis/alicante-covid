@@ -2,30 +2,18 @@ import { parseString } from '@fast-csv/parse'
 import axios from 'axios'
 import { isBefore, parse, subMonths } from 'date-fns'
 
-export function getPcrTest () {
-  return axios.get('http://127.0.0.1:5500/casos_tecnica_provincia (1).csv')
-    .then(csv =>
-      extrarCsvData(csv.data,
-        [
-          'provinciaIso', 'fecha', 'numCasos',
-          'numCasosPruebaPcr', 'numCasosPruebaTestAc',
-          'numCasosPruebaAg', 'numCasosPruebaElisa', 'numCasosPruebaDesconocida'
-        ],
-        ['provinciaIso', 'fecha', 'numCasos']
-      ).then(data =>
-        data
-          .filter(resultData => resultData.provinciaIso === 'A')
-          .filter(data => isBefore(subMonths(new Date(), 2), dateParse(data.fecha)))
-      )
-    )
-}
-
 function dateParse (date) {
   return parse(date, 'yyyy-MM-dd', new Date())
 }
 
 export function getNewInfected () {
-  return axios.get('http://localhost:5500/casos_hosp_uci_def_sexo_edad_provres (1).csv')
+  if (!process.env.NEW_INFECTED_URL) {
+    return {
+      lastUpdate: new Date().toISOString(),
+      chart: []
+    }
+  }
+  return axios.get(process.env.NEW_INFECTED_URL)
     .then(csv =>
       extrarCsvData(csv.data,
         ['provinciaIso', 'sexo', 'grupoEdad', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef'],
@@ -52,8 +40,11 @@ export function getNewInfected () {
               })
             }
           })
-          console.log(result)
-          return result
+
+          return {
+            chart: result,
+            lastUpdate: new Date().toISOString()
+          }
         })
     )
 }

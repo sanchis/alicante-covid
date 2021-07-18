@@ -1,15 +1,15 @@
 import NavBar from 'components/navbar'
-import PcrTestChart from 'components/charts/PcrTestChart'
+// import Header from 'components/header'
 import NewInfectedChart from 'components/charts/NewInfectedChart'
-import { getNewInfected, getPcrTest } from 'utils/csvExtractor'
+import { getNewInfected } from 'utils/csvExtractor'
 
-export default function Home ({ pcrTest, newInfected }) {
+export default function Home ({ newInfected }) {
   return (
     <>
       <NavBar />
+      {/* <Header /> */}
       <main>
         <div className='container'>
-          <PcrTestChart pcrTest={pcrTest} />
           <NewInfectedChart newInfected={newInfected} />
         </div>
       </main>
@@ -18,10 +18,9 @@ export default function Home ({ pcrTest, newInfected }) {
 }
 
 export async function getStaticProps () {
-  const [pcrTest, newInfected] = await Promise.all([getPcrTest(), getNewInfected()])
+  const newInfected = await getNewInfected()
   return {
     props: {
-      pcrTest,
       newInfected
     },
     revalidate: 122

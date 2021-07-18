@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { load } from 'cheerio'
 import { validCodMunicipio } from 'config/validCodMunicipio'
 import { isBefore, subMonths } from 'date-fns'
 import { extrarCsvData } from 'utils/csv'
@@ -47,7 +48,7 @@ export function getNewInfected () {
     )
 }
 
-export function getMunicipalitiesData () {
+export async function getMunicipalitiesData () {
   const result = {
     lastUpdate: new Date().toISOString(),
     municipalities: []
@@ -55,7 +56,8 @@ export function getMunicipalitiesData () {
   if (!process.env.MUNICIPALITIES_URL) {
     return result
   }
-  return axios.get(process.env.MUNICIPALITIES_URL)
+  const id = await getLastLogMunicipalities()
+  return axios.get(`https://dadesobertes.gva.es/es/datastore/dump/${id}?format=json`)
     .then(response => response.data.records)
     .then(records => {
       result.municipalities = records.filter(record => validCodMunicipio.indexOf(record[1]) > 0)
@@ -68,4 +70,14 @@ export function getMunicipalitiesData () {
         )
       return result
     })
+}
+
+async function getLastLogMunicipalities () {
+  return axios.get(process.env.MUNICIPALITIES_URL)
+    .then(response => response.data)
+    .then(data => load(data))
+    .then(dom =>
+      dom('#dataset-resources .heading').prop('href')
+    )
+    .then(link => link.substr(link.lastIndexOf('/') + 1, link.length))
 }

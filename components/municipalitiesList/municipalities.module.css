@@ -1,6 +1,5 @@
 .header {
     margin-top: var(--size-1);
-    margin-bottom: var(--size-4);
 }
 
 .cardContainer {
@@ -29,5 +28,4 @@
 .descriptionLabel{
     margin-top: 0px;
     display: block;
-    margin-bottom: var(--size-7);
 }

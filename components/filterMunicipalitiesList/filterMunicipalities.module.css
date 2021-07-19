@@ -1,0 +1,4 @@
+.containerFilter {
+    margin: var(--size-8) 0 var(--size-6) 0;
+    display: flex;
+}

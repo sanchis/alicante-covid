@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
   render () {
     return (
-      <Html>
+      <Html lang='es'>
         <Head>
           <title>Covid 19 Alicante | Estadísticas diarias</title>
           <meta name='description' content='Ultimas estadísticas sobre el covid en la ciudad de Alicante. Información sobre todos los municipios de la ciudad de Alicante' />

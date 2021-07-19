@@ -1,8 +1,11 @@
 import React from 'react'
-export default function Select ({ children, ...props }) {
+export default function Select ({ label, children, ...props }) {
   return (
-    <select {...props}>
-      {children}
-    </select>
+    <>
+      {label ? <label>{label}</label> : null}
+      <select {...props}>
+        {children}
+      </select>
+    </>
   )
 }

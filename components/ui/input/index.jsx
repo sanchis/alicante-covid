@@ -1,6 +1,9 @@
 import React from 'react'
-export default function Input ({ ...props }) {
+export default function Input ({ label, ...props }) {
   return (
-    <input {...props} />
+    <>
+      {label ? <label>{label}</label> : null}
+      <input {...props} />
+    </>
   )
 }

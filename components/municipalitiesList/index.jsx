@@ -15,6 +15,7 @@ function getRisk (incidencia) {
 
 export default function MunicipalitiesList ({ municipalitiesData }) {
   const [searchText, setSearchText] = useState('')
+  const [orderBy, setOrderBy] = useState(null)
   const [municipalities, setMunicipalities] = useState(municipalitiesData.municipalities)
 
   useEffect(() => {
@@ -24,13 +25,24 @@ export default function MunicipalitiesList ({ municipalitiesData }) {
     )
   }, [searchText, municipalitiesData])
 
+  useEffect(() => {
+    console.log(orderBy)
+    setMunicipalities(munis =>
+      [...munis].sort((a, b) =>
+        isNaN(a[orderBy])
+          ? (a[orderBy] > b[orderBy] ? 1 : -1)
+          : (a[orderBy] < b[orderBy] ? 1 : -1)
+      )
+    )
+  }, [orderBy])
+
   return (
     <>
       <h2 className={styles.header}>Información sobre municipios</h2>
       <p className='text-cursive'>Datos de los últimos 14 días</p>
       <p className='text-cursive'>Ultima actualización: {formatRelative(parseISO(municipalitiesData.lastUpdate), new Date(), { locale: es })}</p>
 
-      <FilterMunicipalities onChangeSearchText={(val) => setSearchText(val.trim().toLowerCase())} />
+      <FilterMunicipalities onChangeOrderBy={(val) => setOrderBy(val)} onChangeSearchText={(val) => setSearchText(val.trim().toLowerCase())} />
       <div className={styles.cardContainer}>
         {municipalities
           .map(muni =>

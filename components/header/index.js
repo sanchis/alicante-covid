@@ -1,9 +1,10 @@
 import React from 'react'
-import styles from './header.module.css'
+// import styles from './header.module.css'
+import Image from 'next/image'
+import Logo from 'public/logo.png'
+
 export default function Header () {
   return (
-    <h1 className={styles.mainHeader}>
-      Covid Alicante
-    </h1>
+    <Image src={Logo} placeholder='blur' alt='logo' />
   )
 }

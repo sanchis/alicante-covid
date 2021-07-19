@@ -1,4 +1,3 @@
-// import NavBar from 'components/navbar'
 import Header from 'components/header'
 import NewInfectedChart from 'components/charts/NewInfectedChart'
 import MunicipalitiesList from 'components/municipalitiesList'
@@ -7,10 +6,9 @@ import { getMunicipalitiesData, getNewInfected } from 'services'
 export default function Home ({ newInfected, municipalitiesData }) {
   return (
     <>
-      {/* <NavBar /> */}
-      <Header />
       <main>
         <div className='container'>
+          <Header />
           <NewInfectedChart newInfected={newInfected} />
           <MunicipalitiesList municipalitiesData={municipalitiesData} />
         </div>

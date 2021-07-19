@@ -57,6 +57,9 @@ export async function getMunicipalitiesData () {
     return result
   }
   const id = await getLastLogMunicipalities()
+  if (!id) {
+    return result
+  }
   return axios.get(`https://dadesobertes.gva.es/es/datastore/dump/${id}?format=json`)
     .then(response => response.data.records)
     .then(records => {
@@ -79,5 +82,5 @@ async function getLastLogMunicipalities () {
     .then(dom =>
       dom('#dataset-resources .heading').prop('href')
     )
-    .then(link => link.substr(link.lastIndexOf('/') + 1, link.length))
+    .then(link => link ? link.substr(link.lastIndexOf('/') + 1, link.length) : undefined)
 }

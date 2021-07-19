@@ -22,29 +22,29 @@ export default function NewInfectedChart ({ newInfected }) {
               label: 'Nuevos positivos',
               data: newInfected.chart.map(data => data.numCasos),
               fill: false,
-              backgroundColor: 'rgb(255, 193, 7)',
-              borderColor: 'rgba(255, 193, 7, 0.2)'
+              backgroundColor: 'rgb(119, 170, 185)',
+              borderColor: 'rgba(119, 170, 185, 0.2)'
             },
             {
               label: 'Nuevos hospitalizados',
               data: newInfected.chart.map(data => data.numHosp),
               fill: false,
-              backgroundColor: 'rgb(255,87,34)',
-              borderColor: 'rgba(255,87,34, 0.2)'
+              backgroundColor: 'rgb(88,131,169)',
+              borderColor: 'rgba(88,131,169, 0.2)'
             },
             {
               label: 'Nuevos en UCI',
               data: newInfected.chart.map(data => data.numUci),
               fill: false,
-              backgroundColor: 'rgb(183,28,28)',
-              borderColor: 'rgba(183,28,28, 0.2)'
+              backgroundColor: 'rgb(48,84,134)',
+              borderColor: 'rgba(48,84,134, 0.2)'
             },
             {
               label: 'Nuevas defunciones',
               data: newInfected.chart.map(data => data.numDef),
               fill: false,
-              backgroundColor: 'rgb(66,66,66)',
-              borderColor: 'rgba(66,66,66, 0.2)'
+              backgroundColor: 'rgb(21,64,74)',
+              borderColor: 'rgba(21,64,74, 0.2)'
             }
           ]
         }} options={CommonOptionsChart}

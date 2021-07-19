@@ -1,0 +1,29 @@
+input,
+textarea,
+select {
+    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    max-width: 100%;
+    width: 100%;
+
+    background-color: #fff;
+    color: var(--text);
+
+    border-radius: var(--b-radius);
+    padding: var(--size-8);
+    border: 1px solid var(--primary-light-4);
+    margin: var(--size-8)
+}
+
+input:hover,
+input:focus,
+input:active,
+textarea:hover,
+textarea:focus,
+textarea:active,
+select:hover,
+select:focus,
+select:active {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.150em var(--primary-light-3);
+    outline: 0;
+}

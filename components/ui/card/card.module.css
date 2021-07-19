@@ -1,0 +1,6 @@
+.card{
+    padding: var(--size-4);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--b-radius);
+    background-color: var(--grey-light);
+}

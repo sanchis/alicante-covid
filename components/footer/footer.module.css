@@ -1,0 +1,19 @@
+.footer{
+    background-color: var(--primary-dark-3);
+    padding: var(--size-1) var(--size-4);
+    display: block;
+    color: white;
+}
+
+.link{
+    color: var(--primary-light-3)
+}
+
+.noMargin{
+    margin: 0;
+}
+
+.containerLogo{
+    margin: auto;
+    width: 100px;
+}

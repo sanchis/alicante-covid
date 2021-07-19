@@ -11,7 +11,7 @@ export default function FilterMunicipalities ({ onChangeSearchText }) {
         <option value='pcrPositives'>Positivos COVID</option>
         <option value='incidencia'>Incidencia acumulada</option>
       </Select> */}
-      <Input onChange={(event) => onChangeSearchText(event.target.value)} />
+      <Input placeholder='Buscar por nombre' type='text' onChange={(event) => onChangeSearchText(event.target.value)} />
 
     </Card>
   )

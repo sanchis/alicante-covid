@@ -15,6 +15,7 @@ class MyDocument extends Document {
           <meta property='og:description' content='Ultimas estadísticas sobre el covid en la ciudad de Alicante. Información sobre todos los municipios de la ciudad de Alicante' />
           <meta property='og:image' content='/logo.png' />
           <meta property='og:type' content='website' />
+          <meta property='og:title' content='Covid 19 Alicante' />
         </Head>
         <body>
           <Main />

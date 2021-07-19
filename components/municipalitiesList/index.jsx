@@ -33,8 +33,6 @@ export default function MunicipalitiesList ({ municipalitiesData }) {
       <FilterMunicipalities onChangeSearchText={(val) => setSearchText(val.trim().toLowerCase())} />
       <div className={styles.cardContainer}>
         {municipalities
-          // .filter(filterMunicipalities)
-          // .sort(sortMunicipalities)
           .map(muni =>
             <Card key={muni.name}>
               <h3>{muni.name}</h3>

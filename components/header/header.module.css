@@ -1,3 +1,4 @@
-.mainHeader{
-    text-align: center;
+.imageContainer{
+    max-width: 960px;
+    margin: auto;
 }

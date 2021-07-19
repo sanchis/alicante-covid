@@ -26,7 +26,6 @@ export default function MunicipalitiesList ({ municipalitiesData }) {
   }, [searchText, municipalitiesData])
 
   useEffect(() => {
-    console.log(orderBy)
     setMunicipalities(munis =>
       [...munis].sort((a, b) =>
         isNaN(a[orderBy])

@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Covid 19 Alicante</title>
+          <title>Covid 19 Alicante | Estadísticas diarias</title>
           <meta name='description' content='Ultimas estadísticas sobre el covid en la ciudad de Alicante. Información sobre todos los municipios de la ciudad de Alicante' />
 
           <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
@@ -13,9 +13,9 @@ class MyDocument extends Document {
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
 
           <meta property='og:description' content='Ultimas estadísticas sobre el covid en la ciudad de Alicante. Información sobre todos los municipios de la ciudad de Alicante' />
-          <meta property='og:image' content='/logo.png' />
+          <meta property='og:image' content='/oglogo.png' />
           <meta property='og:type' content='website' />
-          <meta property='og:title' content='Covid 19 Alicante' />
+          <meta property='og:title' content='Covid 19 Alicante | Estadísticas diarias' />
         </Head>
         <body>
           <Main />

@@ -15,7 +15,7 @@ function getRisk (incidencia) {
 
 export default function MunicipalitiesList ({ municipalitiesData }) {
   const [searchText, setSearchText] = useState('')
-  const [orderBy, setOrderBy] = useState(null)
+  const [orderBy, setOrderBy] = useState('name')
   const [municipalities, setMunicipalities] = useState(municipalitiesData.municipalities)
 
   useEffect(() => {

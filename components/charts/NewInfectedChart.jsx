@@ -4,6 +4,9 @@ import React from 'react'
 import { Line } from 'react-chartjs-2'
 import styles from './chart.module.css'
 import { es } from 'date-fns/locale'
+import { install } from 'resize-observer'
+
+if (process.browser && window.ResizeObserver === undefined) install()
 
 export default function NewInfectedChart ({ newInfected }) {
   return (

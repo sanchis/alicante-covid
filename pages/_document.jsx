@@ -20,6 +20,7 @@ class MyDocument extends Document {
           <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
           <link rel='manifest' href='/manifest.json' />
           <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+          <meta name='google-site-verification' content='bnDck8whGv2SHMuVDS7gTTXGDQ0d2G_ux3wucCIVyIc' />
 
           <meta name='theme-color' content='#3A5699' />
 

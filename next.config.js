@@ -1,11 +1,17 @@
 const withPWA = require('next-pwa')
+const withPlugins = require('next-compose-plugins')
 
-module.exports = withPWA({
-  pwa: {
-    dest: 'public'
-  }
-})
-
-module.exports = {
+const nextConfig = {
   reactStrictMode: true
 }
+
+module.exports = withPlugins([
+  [
+    withPWA,
+    {
+      pwa: {
+        dest: 'public'
+      }
+    }
+  ]
+], nextConfig)

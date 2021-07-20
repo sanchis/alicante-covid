@@ -16,9 +16,10 @@ class MyDocument extends Document {
           <meta property='og:type' content='website' />
           <meta property='og:title' content='Covid 19 Alicante | Estadísticas diarias' />
 
-          <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+          <meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no' />
           <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
           <link rel='manifest' href='/manifest.json' />
+          <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
 
           <meta name='theme-color' content='#3A5699' />
 

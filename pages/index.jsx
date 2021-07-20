@@ -3,7 +3,7 @@ import NewInfectedChart from 'components/charts/NewInfectedChart'
 import MunicipalitiesList from 'components/municipalitiesList'
 import { getMunicipalitiesData, getNewInfected } from 'services'
 import Footer from 'components/footer'
-import { Head } from 'next/head'
+import Head from 'next/head'
 
 export default function Home ({ newInfected, municipalitiesData }) {
   return (

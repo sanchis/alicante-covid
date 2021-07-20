@@ -6,7 +6,7 @@ import styles from './chart.module.css'
 import { es } from 'date-fns/locale'
 import { install } from 'resize-observer'
 
-if (window && !window.ResizeObserver) install()
+if (process.browser && window.ResizeObserver === undefined) install()
 
 export default function NewInfectedChart ({ newInfected }) {
   return (

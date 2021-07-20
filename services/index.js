@@ -6,11 +6,12 @@ import { extrarCsvData } from 'utils/csv'
 import { dateParse } from 'utils/date'
 
 export function getNewInfected () {
+  const response = {
+    lastUpdate: new Date().toISOString(),
+    chart: []
+  }
   if (!process.env.NEW_INFECTED_URL) {
-    return {
-      lastUpdate: new Date().toISOString(),
-      chart: []
-    }
+    return response
   }
   return axios.get(process.env.NEW_INFECTED_URL)
     .then(csv =>
@@ -39,13 +40,13 @@ export function getNewInfected () {
               })
             }
           })
-
-          return {
-            chart: result,
-            lastUpdate: new Date().toISOString()
-          }
+          response.chart = result
+          return response
         })
-    )
+    ).catch(error => {
+      console.error('Error fetch new Infected', error)
+      return response
+    })
 }
 
 export async function getMunicipalitiesData () {
@@ -72,7 +73,12 @@ export async function getMunicipalitiesData () {
           })
         )
       return result
-    })
+    }).catch(
+      error => {
+        console.error('Error fetch municipalities', error)
+        return result
+      }
+    )
 }
 
 async function getLastLogMunicipalities () {

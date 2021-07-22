@@ -1,9 +1,7 @@
 import { CommonOptionsChart } from 'config/chartjs.config'
-import { formatRelative, parseISO } from 'date-fns'
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import styles from './chart.module.css'
-import { es } from 'date-fns/locale'
 import { install } from 'resize-observer'
 
 if (process.browser && window.ResizeObserver === undefined) install()
@@ -14,9 +12,6 @@ export default function NewInfectedChart ({ newInfected }) {
       <h2>Nuevos casos COVID</h2>
       <p className='text-cursive'>
         Número de hospitalizaciones, número de ingresos en UCI y número de defunciones.
-      </p>
-      <p className='text-cursive'>
-        Ultima actualización: {formatRelative(parseISO(newInfected.lastUpdate), new Date(), { locale: es })}
       </p>
       <div className={styles.chartContainer}>
         <Line

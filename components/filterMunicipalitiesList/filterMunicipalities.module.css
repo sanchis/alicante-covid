@@ -4,5 +4,6 @@
 }
 
 .selectOrder{
-    width: 20%;
+    min-width: 200px;
+    width: auto;
 }

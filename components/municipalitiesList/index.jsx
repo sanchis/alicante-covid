@@ -1,7 +1,5 @@
 import FilterMunicipalities from 'components/filterMunicipalitiesList'
 import Card from 'components/ui/card'
-import { formatRelative, parseISO } from 'date-fns'
-import { es } from 'date-fns/locale'
 import React, { useEffect, useState } from 'react'
 import styles from './municipalities.module.css'
 
@@ -39,7 +37,6 @@ export default function MunicipalitiesList ({ municipalitiesData }) {
     <>
       <h2 className={styles.header}>Información sobre municipios</h2>
       <p className='text-cursive'>Datos de los últimos 14 días</p>
-      <p className='text-cursive'>Ultima actualización: {formatRelative(parseISO(municipalitiesData.lastUpdate), new Date(), { locale: es })}</p>
 
       <FilterMunicipalities onChangeOrderBy={(val) => setOrderBy(val)} onChangeSearchText={(val) => setSearchText(val.trim().toLowerCase())} />
       <div className={styles.cardContainer}>

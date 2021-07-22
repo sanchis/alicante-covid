@@ -19,7 +19,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--primary-light-3);
   text-decoration: none;
 }
 

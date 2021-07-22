@@ -8,7 +8,6 @@ import { dateParse } from 'utils/date'
 export function getNewInfected () {
   if (!process.env.NEW_INFECTED_URL) {
     return {
-      lastUpdate: new Date().toISOString(),
       chart: []
     }
   }
@@ -41,8 +40,7 @@ export function getNewInfected () {
           })
 
           return {
-            chart: result,
-            lastUpdate: new Date().toISOString()
+            chart: result
           }
         })
     )
@@ -50,7 +48,6 @@ export function getNewInfected () {
 
 export async function getMunicipalitiesData () {
   const result = {
-    lastUpdate: new Date().toISOString(),
     municipalities: []
   }
   if (!process.env.MUNICIPALITIES_URL) {

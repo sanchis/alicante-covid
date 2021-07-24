@@ -1,5 +1,6 @@
 import FilterMunicipalities from 'components/filterMunicipalitiesList'
 import Card from 'components/ui/card'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import styles from './municipalities.module.css'
 
@@ -15,6 +16,7 @@ export default function MunicipalitiesList ({ municipalitiesData }) {
   const [searchText, setSearchText] = useState('')
   const [orderBy, setOrderBy] = useState('name')
   const [municipalities, setMunicipalities] = useState(municipalitiesData.municipalities)
+  const router = useRouter()
 
   useEffect(() => {
     setMunicipalities(
@@ -42,7 +44,7 @@ export default function MunicipalitiesList ({ municipalitiesData }) {
       <div className={styles.cardContainer}>
         {municipalities
           .map(muni =>
-            <Card key={muni.name}>
+            <Card key={muni.name} onClick={() => router.push(`municipios/${muni.id}`)}>
               <h3>{muni.name}</h3>
               <h1 className='align-center'>{muni.pcrPositives}</h1>
               <small className={`align-center ${styles.descriptionLabel}`}>Positivos</small>

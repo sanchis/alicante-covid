@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './card.module.css'
-export default function Card ({ className, children }) {
+export default function Card ({ className, children, onClick }) {
   return (
-    <div className={`${styles.card} ${className}`}>
+    <div onClick={onClick} className={`${styles.card} ${className} ${onClick ? styles.cardClickeable : ''}`}>
       {children}
     </div>
   )

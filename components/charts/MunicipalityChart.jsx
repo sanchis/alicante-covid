@@ -17,17 +17,17 @@ export default function MunicipalityChart ({ data }) {
             datasets: [
               {
                 label: 'Nuevos positivos',
-                data: data.chart.map(data => data.data.pcrPositives),
+                data: data.chart.map(data => data.data ? data.data.pcrPositives : null),
                 fill: false,
-                backgroundColor: 'rgb(119, 170, 185)',
-                borderColor: 'rgba(119, 170, 185, 0.2)'
+                backgroundColor: 'rgb(21,64,74)',
+                borderColor: 'rgba(21,64,74, 0.2)'
               },
               {
                 label: 'Incidencia acumulada',
-                data: data.chart.map(data => data.data.incidencia),
+                data: data.chart.map(data => data.data ? data.data.incidencia : null),
                 fill: false,
-                backgroundColor: 'rgb(88,131,169)',
-                borderColor: 'rgba(88,131,169, 0.2)'
+                backgroundColor: 'rgb(88, 131, 169)',
+                borderColor: 'rgba(88, 131, 169, 0.2)'
               }
 
             ]

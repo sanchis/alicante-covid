@@ -46,7 +46,7 @@ export function getNewInfected () {
     )
 }
 
-export async function getMunicipalitiesData () {
+export async function getLastMunicipalitiesData () {
   const result = {
     municipalities: []
   }
@@ -57,12 +57,21 @@ export async function getMunicipalitiesData () {
   if (!id) {
     return result
   }
+  return getLog(id)
+}
+
+async function getLog (id, date = null) {
+  const result = {
+    municipalities: [],
+    date
+  }
   return axios.get(`https://dadesobertes.gva.es/es/datastore/dump/${id}?format=json`)
     .then(response => response.data.records)
     .then(records => {
       result.municipalities = records.filter(record => validCodMunicipio.indexOf(record[1]) > 0)
         .map(record =>
           ({
+            id: record[1],
             name: record[2],
             pcrPositives: record[5],
             incidencia: Number(record[6].replace(',', '.'))
@@ -73,11 +82,36 @@ export async function getMunicipalitiesData () {
 }
 
 async function getLastLogMunicipalities () {
+  return getListLogs()
+    .then(links => links.prop('href'))
+    .then(link => extractIdFromLink(link))
+}
+
+export async function getAllLogMunicipalities () {
+  const resLinks = await getListLogs()
+    .then(links =>
+      links.map((index, element) => {
+        return {
+          date: element.attribs.title.substring(element.attribs.title.length - 10, element.attribs.title.length),
+          link: extractIdFromLink(element.attribs.href)
+        }
+      }).toArray()
+    ).then(links => links.sort((a, b) => dateParse(a.date) - dateParse(b.date)))
+
+  return Promise.all(resLinks.map(async (data) => {
+    return getLog(data.link, data.date)
+  }))
+}
+
+function getListLogs () {
   return axios.get(process.env.MUNICIPALITIES_URL)
     .then(response => response.data)
     .then(data => load(data))
     .then(dom =>
-      dom('#dataset-resources .heading').prop('href')
+      dom('#dataset-resources a.heading')
     )
-    .then(link => link ? link.substr(link.lastIndexOf('/') + 1, link.length) : undefined)
+}
+
+function extractIdFromLink (link) {
+  return link ? link.substr(link.lastIndexOf('/') + 1, link.length) : undefined
 }

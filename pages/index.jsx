@@ -1,8 +1,6 @@
-import Header from 'components/header'
 import NewInfectedChart from 'components/charts/NewInfectedChart'
 import MunicipalitiesList from 'components/municipalitiesList'
-import { getMunicipalitiesData, getNewInfected } from 'services'
-import Footer from 'components/footer'
+import { getLastMunicipalitiesData, getNewInfected } from 'services'
 import Head from 'next/head'
 
 export default function Home ({ newInfected, municipalitiesData }) {
@@ -11,20 +9,15 @@ export default function Home ({ newInfected, municipalitiesData }) {
       <Head>
         <title>Covid 19 Alicante | Estadísticas diarias</title>
       </Head>
-      <main>
-        <div className='container'>
-          <Header />
-          <NewInfectedChart newInfected={newInfected} />
-          <MunicipalitiesList municipalitiesData={municipalitiesData} />
-        </div>
-      </main>
-      <Footer />
+
+      <NewInfectedChart newInfected={newInfected} />
+      <MunicipalitiesList municipalitiesData={municipalitiesData} />
     </>
   )
 }
 
 export async function getStaticProps () {
-  const [newInfected, municipalitiesData] = await Promise.all([getNewInfected(), getMunicipalitiesData()])
+  const [newInfected, municipalitiesData] = await Promise.all([getNewInfected(), getLastMunicipalitiesData()])
   return {
     props: {
       newInfected,

@@ -26,7 +26,6 @@ export async function getStaticProps ({ params }) {
   )
 
   result.name = result.chart[0].data.name
-  console.log(JSON.stringify(result))
 
   return {
     props: {

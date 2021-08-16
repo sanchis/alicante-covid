@@ -1,7 +1,7 @@
 name: New Deploy
 on:
    schedule:
-     - cron: '15 0 * * *'
+     - cron: '20 0 * * *'
 
 jobs:
   logLatestRelease:

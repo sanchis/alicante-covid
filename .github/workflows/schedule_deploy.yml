@@ -7,7 +7,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
          - uses: octokit/request-action@v2.x
-           id: generate deploy
+           id: generate_deploy
            with:
               route: GET ${{ secrets.DEPLOY_URL }}
               owner: octokit

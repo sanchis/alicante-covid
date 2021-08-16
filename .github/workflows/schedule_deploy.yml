@@ -1,8 +1,7 @@
 name: New Deploy
 on:
    schedule:
-      - cron: '20 0 * * *'
-
+      - cron: '34 2 * * *'
 jobs:
    logLatestRelease:
       runs-on: ubuntu-latest

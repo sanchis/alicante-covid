@@ -22,7 +22,6 @@ export async function getStaticProps () {
     props: {
       newInfected,
       municipalitiesData
-    },
-    revalidate: Number(process.env.REVALIDATE_INFECTED) || 1200
+    }
   }
 }

@@ -30,8 +30,7 @@ export async function getStaticProps ({ params }) {
   return {
     props: {
       data: result
-    },
-    revalidate: Number(process.env.REVALIDATE_INFECTED) || 1200
+    }
   }
 }
 

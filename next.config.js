@@ -3,7 +3,7 @@ const withPlugins = require('next-compose-plugins')
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental:{
+  experimental: {
     staticPageGenerationTimeout: 240
   }
 }

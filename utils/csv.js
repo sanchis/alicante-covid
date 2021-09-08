@@ -1,10 +1,10 @@
 import { parseString } from '@fast-csv/parse'
 
-export function extrarCsvData (csvData, columns, extractColumns = []) {
+export function extrarCsvData (csvData, columns, extractColumns = [], delimiter = ',') {
   const result = []
   return new Promise((resolve) =>
     parseString(csvData, {
-      delimiter: ',',
+      delimiter,
       headers: columns,
       renameHeaders: true,
       skipRows: 0

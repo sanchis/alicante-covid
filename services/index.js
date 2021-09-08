@@ -5,6 +5,10 @@ import { isBefore, subMonths } from 'date-fns'
 import { extrarCsvData } from 'utils/csv'
 import { dateParse } from 'utils/date'
 
+/**
+ * Get the infected people, in hospital, in uci and dead.
+ * @returns { Array }
+ */
 export function getNewInfected () {
   if (!process.env.NEW_INFECTED_URL) {
     return {
@@ -46,6 +50,10 @@ export function getNewInfected () {
     )
 }
 
+/**
+ * Get last log of municipalities data.
+ * @returns { string }
+ */
 export async function getLastMunicipalitiesData () {
   const result = {
     municipalities: []
@@ -60,33 +68,53 @@ export async function getLastMunicipalitiesData () {
   return getLog(id)
 }
 
+/**
+ * Get the data of municipalities name, incidencia and pcrPositives.
+ * @param {*} id
+ * @param {*} date
+ * @returns { Array }
+ */
 async function getLog (id, date = null) {
   const result = {
     municipalities: [],
     date
   }
-  return axios.get(`https://dadesobertes.gva.es/es/datastore/dump/${id}?format=json`)
-    .then(response => response.data.records)
+  return axios.get(`https://dadesobertes.gva.es/dataset/38e6d3ac-fd77-413e-be72-aed7fa6f13c2/resource/${id}/download/covid-19-casos-confirmados-por-pcr-casos-pcr-en-los-ultimos-14-dias-y-personas-fallecidas-por-mu.csv`)
+    .then(response =>
+      extrarCsvData(
+        response.data,
+        ['codMunicipio', 'municipio', 'positivos', 'incidencia', 'positivos14', 'incidencia14', 'defunciones', 'tasaDefuncion'],
+        ['codMunicipio', 'municipio', 'positivos14', 'incidencia14'],
+        ';'
+      ))
     .then(records => {
-      result.municipalities = records.filter(record => validCodMunicipio.indexOf(record[1]) > 0)
+      result.municipalities = records.filter(record => validCodMunicipio.indexOf(Number(record.codMunicipio)) > 0)
         .map(record =>
           ({
-            id: record[1],
-            name: record[2],
-            pcrPositives: record[5],
-            incidencia: Number(record[6].replace(',', '.'))
+            id: Number(record.codMunicipio),
+            name: record.municipio,
+            pcrPositives: Number(record.positivos14),
+            incidencia: Number(record.incidencia14.trim().replace(',', '.'))
           })
         )
       return result
     })
 }
 
+/**
+ * Crawl the web and extract the last link of municipalities
+ * @returns { string }
+ */
 async function getLastLogMunicipalities () {
   return getListLogs()
     .then(links => links.prop('href'))
     .then(link => extractIdFromLink(link))
 }
 
+/**
+ * Return all data for all municipalities
+ * @returns { Array }
+ */
 export async function getAllLogMunicipalities () {
   const resLinks = await getListLogs()
     .then(links =>
@@ -103,6 +131,10 @@ export async function getAllLogMunicipalities () {
   }))
 }
 
+/**
+ * Crawl all links for the municipalities
+ * @returns { Array }
+ */
 function getListLogs () {
   return axios.get(process.env.MUNICIPALITIES_URL)
     .then(response => response.data)

@@ -133,7 +133,7 @@ export async function getAllLogMunicipalities () {
 
 /**
  * Crawl all links for the municipalities
- * @returns 
+ * @returns { Array }
  */
 function getListLogs () {
   return axios.get(process.env.MUNICIPALITIES_URL)

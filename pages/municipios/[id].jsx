@@ -21,10 +21,12 @@ export async function getStaticProps ({ params }) {
   res.forEach(responses =>
     result.chart.push({
       date: responses.date,
+      // Find the current municipalities in all municipalities
       data: responses.municipalities.find(municipalitiesFind => municipalitiesFind.id === Number(params.id)) || null
     })
   )
 
+  // Get current name of current municipalities
   result.name = result.chart[0].data.name
 
   return {

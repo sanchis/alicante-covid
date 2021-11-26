@@ -1,6 +1,6 @@
 import { parseString } from '@fast-csv/parse'
 
-export function extrarCsvData (csvData, columns, extractColumns = [], delimiter = ',') {
+export function extractCsvData (csvData, columns, extractColumns = [], delimiter = ',') {
   const result = []
   return new Promise((resolve) =>
     parseString(csvData, {

@@ -1,6 +1,6 @@
 import MunicipalityChart from 'components/charts/MunicipalityChart'
 import React from 'react'
-import { getAllLogMunicipalities, getLastMunicipalitiesData } from 'services'
+import { getAllLogMunicipalities, getLastMunicipalitiesData } from 'services/munipalities'
 
 export default function Municipios ({ data }) {
   return (

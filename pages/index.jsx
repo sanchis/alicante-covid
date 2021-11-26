@@ -1,6 +1,7 @@
 import NewInfectedChart from 'components/charts/NewInfectedChart'
 import MunicipalitiesList from 'components/municipalitiesList'
-import { getLastMunicipalitiesData, getNewInfected } from 'services'
+import { getLastMunicipalitiesData } from 'services/munipalities'
+import { getNewInfected } from 'services/infected'
 import Head from 'next/head'
 
 export default function Home ({ newInfected, municipalitiesData }) {

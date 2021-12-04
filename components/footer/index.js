@@ -10,6 +10,7 @@ export default function Footer () {
       <div className={styles.containerLogo}>
         <Image src={logo} alt='logo footer' placeholder='blur' />
       </div>
+      <p className={`align-center ${styles.noMargin}`}>Last version: {process.env.VERCEL_GIT_COMMIT_MESSAGE || ''}</p>
     </footer>
   )
 }

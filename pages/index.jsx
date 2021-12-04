@@ -1,6 +1,6 @@
 import NewInfectedChart from 'components/charts/NewInfectedChart'
 import MunicipalitiesList from 'components/municipalitiesList'
-import { getLastMunicipalitiesData } from 'services/munipalities'
+import { getLastMunicipalitiesData } from 'services/municipalities'
 import { getNewInfected } from 'services/infected'
 import Head from 'next/head'
 

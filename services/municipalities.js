@@ -9,9 +9,7 @@ import { dateParse } from 'utils/date'
  * @returns { string }
  */
 export async function getLastMunicipalitiesData () {
-  const result = {
-    municipalities: []
-  }
+  const result = []
   if (!process.env.MUNICIPALITIES_URL) {
     return result
   }

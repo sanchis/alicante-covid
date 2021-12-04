@@ -12,7 +12,6 @@
   "dependencies": {
     "@fast-csv/parse": "4.3.6",
     "axios": "0.24.0",
-    "chart.js": "3.6.1",
     "cheerio": "1.0.0-rc.10",
     "date-fns": "2.27.0",
     "just-debounce-it": "3.0.1",
@@ -20,9 +19,8 @@
     "next-compose-plugins": "2.2.1",
     "next-pwa": "5.4.1",
     "react": "17.0.2",
-    "react-chartjs-2": "3.3.0",
     "react-dom": "17.0.2",
-    "resize-observer": "1.0.4"
+    "recharts": "2.1.6"
   },
   "devDependencies": {
     "eslint": "7.32.0",

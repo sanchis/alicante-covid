@@ -6,7 +6,7 @@ const nextConfig = {
   experimental: {
     staticPageGenerationTimeout: 240
   },
-  basePath: '/',
+  basePath: '',
   assetPrefix: '/'
 }
 

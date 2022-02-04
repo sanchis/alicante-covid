@@ -22,7 +22,7 @@ export default function Loading () {
       router.events.off('routeChangeComplete', unsetLoadingSpinner)
       router.events.off('routeChangeError', unsetLoadingSpinner)
     }
-  }, [])
+  }, [router.events])
 
   const LoaderComponent = () =>
     <div className={styles.containerLoading}>

@@ -5,7 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     staticPageGenerationTimeout: 240
-  }
+  },
+  basePath: '/',
+  assetPrefix: '/'
 }
 
 module.exports = withPlugins([

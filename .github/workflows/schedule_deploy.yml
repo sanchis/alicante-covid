@@ -4,16 +4,17 @@ on:
     - cron: '0 */6 * * 1-5'
   workflow_dispatch: 
 jobs:
-
-  logLatestRelease:
+  deploy:
+    needs: [logLatestRelease]
     runs-on: ubuntu-latest
     env:
       MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}
       NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies 👨🏻‍💻
+        run: npm ci --prefer-offline --no-audit
 
-      - run: npm install
       - run: npm run update-log
       - run: |
           git config user.name cron-daily-update
@@ -21,15 +22,7 @@ jobs:
           git add .
           git commit -m "Add report for today"
           git push
-               
-  deploy:
-    needs: [logLatestRelease]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci --prefer-offline --no-audit
-
+      
       - name: Run build 🏗
         run: npm run build
 

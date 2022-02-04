@@ -1,6 +1,6 @@
-import { parseString } from '@fast-csv/parse'
+const { parseString } = require('@fast-csv/parse')
 
-export function extractCsvData (csvData, columns, extractColumns = [], delimiter = ',') {
+module.exports = function extractCsvData (csvData, columns, extractColumns = [], delimiter = ',') {
   const result = []
   return new Promise((resolve) =>
     parseString(csvData, {

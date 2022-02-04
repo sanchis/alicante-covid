@@ -50,7 +50,3 @@ module.exports = function getNewInfected () {
 function filterCityInAlicante (data) {
   return data.filter(resultData => resultData.provinciaIso === 'A')
 }
-
-function filterByLastMonths (data, lastMonthNumber) {
-  return data.filter(data => isBefore(subMonths(new Date(), lastMonthNumber), dateParse(data.fecha)))
-}

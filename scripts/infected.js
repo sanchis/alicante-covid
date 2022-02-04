@@ -1,16 +1,19 @@
-import axios from 'axios'
-import { isBefore, subMonths } from 'date-fns'
-import { extractCsvData } from 'utils/csv'
-import { dateParse } from 'utils/date'
+
+require('dotenv/config')
+const isBefore = require('date-fns/isBefore')
+const subMonths = require('date-fns/subMonths')
+const extractCsvData = require('./utils/csv')
+const axios = require('axios')
+
+const { dateParse } = require('./utils/date')
 
 const columns = ['provinciaIso', 'sexo', 'grupoEdad', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef']
 const columnsToExtract = ['provinciaIso', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef']
 
 /**
  * Get the infected people, hospital,uci and dead.
- * @returns { Array }
  */
-export function getNewInfected () {
+module.exports = function getNewInfected () {
   if (!process.env.NEW_INFECTED_URL) {
     return {
       chart: []

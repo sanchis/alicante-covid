@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './loading.module.css'
 
-// TODO custom size
 export default function LoadingIcon ({ width = '200px', height = '200px' }) {
   return (
     <svg
@@ -10,44 +9,33 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
         height
       }} version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 200 200' enableBackground='new 0 0 200 200' xmlSpace='preserve'
     >
-
       <g id='body'>
-
         <g className={styles.evelope}>
           <g>
-
             <rect x='103.956' y='57.628' transform='matrix(-0.2015 0.9795 -0.9795 -0.2015 186.9409 -34.9744)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.543' height='2.175' />
-
             <ellipse transform='matrix(0.9784 0.2068 -0.2068 0.9784 13.3685 -21.4106)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' cx='109.074' cy='53.226' rx='3.557' ry='1.779' />
           </g>
           <g>
-
             <rect x='120.357' y='64.516' transform='matrix(-0.6423 0.7665 -0.7665 -0.6423 254.1387 12.601)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.543' height='2.175' />
-
             <ellipse transform='matrix(0.7629 0.6465 -0.6465 0.7629 70.0389 -68.1447)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' cx='127.921' cy='61.411' rx='3.557' ry='1.778' />
           </g>
           <g>
-
             <rect x='134.108' y='77.591' transform='matrix(-0.8209 0.5711 -0.5711 -0.8209 295.9926 64.5149)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.541' height='2.175' />
-
             <ellipse transform='matrix(0.5666 0.824 -0.824 0.5666 124.1331 -84.7547)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' cx='142.637' cy='75.628' rx='3.558' ry='1.779' />
           </g>
           <g>
-
             <rect x='140.875' y='97.239' transform='matrix(-0.9835 0.1808 -0.1808 -0.9835 304.683 168.8848)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.541' height='2.175' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M150.863,101.02c-0.967,0.17-2.029-1.256-2.374-3.192 c-0.346-1.935,0.16-3.643,1.125-3.814c0.97-0.174,2.032,1.256,2.377,3.191C152.335,99.138,151.829,100.848,150.863,101.02z'
             />
           </g>
           <g>
-
             <rect x='139.409' y='117.607' transform='matrix(-0.958 -0.2867 0.2867 -0.958 246.3248 273.4525)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.542' height='2.175' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M147.492,123.921c-0.938-0.287-1.235-2.041-0.662-3.922 s1.8-3.172,2.737-2.885c0.942,0.285,1.239,2.043,0.665,3.924C149.659,122.917,148.431,124.208,147.492,123.921z'
             />
           </g>
           <g>
-
             <rect x='129.26' y='135.677' transform='matrix(-0.8199 -0.5726 0.5726 -0.8199 163.7922 325.0609)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.542' height='2.175' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M135.486,143.081c-0.8-0.568-0.533-2.326,0.602-3.932
@@ -55,7 +43,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='109.059' y='148.468' transform='matrix(-0.4482 -0.8939 0.8939 -0.4482 29.7178 317.4522)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.542' height='2.174' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M111.98,156.278c-0.432-0.881,0.64-2.299,2.402-3.17
@@ -63,7 +50,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='87.73' y='149.962' transform='matrix(0.062 -0.9981 0.9981 0.062 -64.927 233.0152)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.542' height='2.174' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M87.387,156.435c0.07-0.98,1.708-1.666,3.67-1.533
@@ -71,7 +57,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='69.332' y='143.727' transform='matrix(0.6362 -0.7716 0.7716 0.6362 -85.1344 109.094)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.544' height='2.173' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M66.61,146.757c0.631-0.75,2.361-0.346,3.871,0.914
@@ -79,7 +64,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='55.152' y='129.772' transform='matrix(0.8659 -0.5001 0.5001 0.8659 -57.5493 47.0135)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.545' height='2.173' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M52.162,130.407c0.854-0.482,2.333,0.502,3.306,2.211
@@ -87,7 +71,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='48.102' y='110.994' transform='matrix(0.9957 -0.0924 0.0924 0.9957 -10.1365 5.2739)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.544' height='2.173' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M45.919,108.843c0.978-0.082,1.91,1.432,2.079,3.391
@@ -95,7 +78,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='49.077' y='89.789' transform='matrix(0.9512 0.3087 -0.3087 0.9512 30.6372 -11.8766)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.544' height='2.174' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M48.66,85.549c0.93,0.312,1.188,2.07,0.568,3.936
@@ -103,7 +85,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='61.05' y='70.169' transform='matrix(0.7939 0.608 -0.608 0.7939 56.6806 -24.7286)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.544' height='2.175' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M62.648,64.837c0.772,0.604,0.429,2.348-0.776,3.9
@@ -111,7 +92,6 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
           <g>
-
             <rect x='78.954' y='59.388' transform='matrix(0.3117 0.9502 -0.9502 0.3117 114.4062 -36.9789)' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' width='7.545' height='2.176' />
             <path
               fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' d='M84.56,53.952c0.296,0.936-0.973,2.18-2.844,2.78
@@ -119,17 +99,11 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
             />
           </g>
         </g>
-
         <g className='head'>
-
           <ellipse className='circle' fill='#a1d1cb' stroke='#1E1E1E' strokeMiterlimit='10' cx='98.358' cy='104.591' rx='43.131' ry='42.906' />
-
           <g className='face'>
-
             <ellipse className='left-eye' fill='#FFFFFF' cx='87.792' cy='109.901' rx='7.745' ry='6.936' />
-
             <ellipse className={styles.leftEyeball} fill='#1E1E1E' cx='87.759' cy='108.753' rx='3.092' ry='2.938' />
-
             <path
               className={styles.leftEyebrows} fill='#1E1E1E' d='M68.29,101.559c0,0,0.179-0.059,0.516-0.17c0.321-0.084,0.815-0.262,1.388-0.393
   c0.582-0.15,1.263-0.295,2.018-0.434c0.754-0.139,1.574-0.25,2.439-0.35c0.86-0.086,1.762-0.145,2.679-0.176
@@ -144,11 +118,8 @@ export default function LoadingIcon ({ width = '200px', height = '200px' }) {
   c-1.095-0.043-2.204-0.127-3.285-0.318c-2.167-0.383-4.262-0.99-6.182-1.654c-1.923-0.66-3.653-1.432-5.126-2.1
   c-1.473-0.672-2.651-1.33-3.481-1.777c-0.822-0.467-1.292-0.734-1.292-0.734L68.29,101.559z'
             />
-
             <ellipse className='right-eye' transform='matrix(0.991 -0.1339 0.1339 0.991 -13.3992 15.699)' fill='#FFFFFF' cx='109.983' cy='107.439' rx='9.661' ry='8.517' />
-
             <ellipse className={styles.rightEyeball} transform='matrix(0.991 -0.1339 0.1339 0.991 -13.0728 15.5171)' fill='#1E1E1E' cx='108.849' cy='104.968' rx='4.333' ry='4.238' />
-
             <path
               className={styles.rightEyebrows} fill='#1E1E1E' d='M97.595,97.325c0,0,0.046,0.017,0.131,0.034c0.082,0.019,0.219,0.037,0.369,0.081
   c0.298,0.085,0.786,0.168,1.308,0.285c0.534,0.109,1.15,0.228,1.797,0.321c0.643,0.099,1.324,0.162,1.975,0.177

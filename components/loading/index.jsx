@@ -2,6 +2,7 @@ import LoadingIcon from 'components/icons/LoadingIcon'
 import { useRouter } from 'next/router'
 import styles from './loading.module.css'
 import { useEffect, useState } from 'react'
+
 export default function Loading () {
   const router = useRouter()
   const [loading, setLoading] = useState(false)

@@ -3,7 +3,17 @@
     display: flex;
 }
 
-.selectOrder{
+.selectOrder {
     min-width: 200px;
     width: auto;
+}
+
+@media (max-width: 600px) {
+    .containerFilter {
+        flex-direction: column;
+        margin: 0px;
+    }
+    .selectOrder {
+        width: 100%;
+    }
 }

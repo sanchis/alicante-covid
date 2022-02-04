@@ -2,7 +2,6 @@ const axios = require('axios')
 const { load } = require('cheerio')
 const validCodMunicipio = require('./config/validCodMunicipio')
 const extractCsvData = require('./utils/csv')
-const { dateParse } = require('./utils/date')
 
 /**
  * Get last log of municipalities data.

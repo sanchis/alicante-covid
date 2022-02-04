@@ -31,10 +31,16 @@
     "standard": "16.0.3"
   },
   "eslintConfig": {
+    "plugins": [
+      "@next/next"
+    ],
     "extends": [
       "./node_modules/standard/eslintrc.json",
       "next",
       "next/core-web-vitals"
-    ]
+    ],
+    "rules": {
+      "@next/next/no-img-element": "off"
+    }
   }
 }

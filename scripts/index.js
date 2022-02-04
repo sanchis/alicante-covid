@@ -1,7 +1,6 @@
 const getNewInfected = require('./infected')
 const { getLastMunicipalitiesData } = require('./municipalities')
 const fs = require('fs')
-const codMunicipios = require('./config/validCodMunicipio')
 
 async function main () {
   const infectedData = await getNewInfected()

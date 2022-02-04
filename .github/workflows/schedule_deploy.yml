@@ -5,7 +5,6 @@ on:
   workflow_dispatch: 
 jobs:
   deploy:
-    needs: [logLatestRelease]
     runs-on: ubuntu-latest
     env:
       MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}

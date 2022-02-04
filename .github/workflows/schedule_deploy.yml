@@ -1,17 +1,40 @@
 name: New Deploy
 on:
    schedule:
-      - cron: '41 0 * * *'
+      - cron: '0 0 0/6 ? * MON,TUE,WED,THU,FRI *'
    workflow_dispatch: 
 jobs:
+
    logLatestRelease:
       runs-on: ubuntu-latest
       steps:
-         - uses: octokit/request-action@v2.x
-           id: generate_deploy
-           with:
-              route: GET ${{ secrets.DEPLOY_URL }}
-              owner: octokit
-              repo: request-action
-           env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         - uses: actions/checkout@v2
+
+         - run: npm install
+         - run: npm run update-log
+         - run: |
+            git config user.name cron-daily-update
+            git config user.email cron@cron.com
+            git add .
+            git commit -m "Add report for today"
+            git push
+               
+   deploy:
+      needs: [logLatestRelease]
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v2
+         - name: Install dependencies 👨🏻‍💻
+         run: npm ci --prefer-offline --no-audit
+
+         - name: Run build 🏗
+         run: npm run build
+
+         - name: Run export 🚢
+         run: npm run export
+
+         - name: Deploy 🚀
+         uses: JamesIves/github-pages-deploy-action@4.1.5
+         with:
+            branch: gh-pages # The branch the action should deploy to.
+            folder: out # The folder the action should deploy.

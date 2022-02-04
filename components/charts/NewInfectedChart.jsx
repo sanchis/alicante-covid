@@ -54,7 +54,11 @@ export default function NewInfectedChart ({ newInfected }) {
       <p className='text-cursive'>
         Número de hospitalizaciones, número de ingresos en UCI y número de defunciones.
       </p>
-      <Select label='Filtro' value={filter} onChange={onChangeFilter}>
+      <Select
+        label='Filtro' style={{
+          margin: 'var(--size-8) 0 var(--size-8) 0'
+        }} value={filter} onChange={onChangeFilter}
+      >
         {valuesFilter.map(val =>
           <option key={val.name} value={val.value}>{val.name}</option>
         )}

@@ -15,12 +15,12 @@ function getRisk (incidencia) {
 export default function MunicipalitiesList ({ municipalitiesData }) {
   const [searchText, setSearchText] = useState('')
   const [orderBy, setOrderBy] = useState('name')
-  const [municipalities, setMunicipalities] = useState(municipalitiesData.municipalities)
+  const [municipalities, setMunicipalities] = useState(municipalitiesData)
   const router = useRouter()
 
   useEffect(() => {
     setMunicipalities(
-      municipalitiesData.municipalities
+      municipalitiesData
         .filter(muniFilter => muniFilter.name.toLowerCase().includes(searchText))
     )
   }, [searchText, municipalitiesData])

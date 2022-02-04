@@ -1,7 +1,5 @@
-import { CommonOptionsChart } from 'config/chartjs.config'
 import React from 'react'
-import { Line } from 'react-chartjs-2'
-import styles from './chart.module.css'
+import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts'
 
 export default function MunicipalityChart ({ data }) {
   return (
@@ -10,30 +8,16 @@ export default function MunicipalityChart ({ data }) {
       <p className='text-cursive'>
         Número de PCR positivas y incidencia acumulada.
       </p>
-      <div className={styles.chartContainer}>
-        <Line
-          data={{
-            labels: data.chart.map(data => data.date),
-            datasets: [
-              {
-                label: 'Nuevos positivos',
-                data: data.chart.map(data => data.data ? data.data.pcrPositives : null),
-                fill: false,
-                backgroundColor: 'rgb(21,64,74)',
-                borderColor: 'rgba(21,64,74, 0.2)'
-              },
-              {
-                label: 'Incidencia acumulada',
-                data: data.chart.map(data => data.data ? data.data.incidencia : null),
-                fill: false,
-                backgroundColor: 'rgb(88, 131, 169)',
-                borderColor: 'rgba(88, 131, 169, 0.2)'
-              }
-
-            ]
-          }} options={CommonOptionsChart}
-        />
-      </div>
+      <ResponsiveContainer height={500}>
+        <LineChart data={data.chart} width={500} height={500}>
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='date' fontSize='12px' minTickGap={0} interval='preserveStartEnd' />
+          <Tooltip />
+          <Legend />
+          <Line type='monotone' name='Nuevos positivos' dataKey='pcrPositives' stroke='rgb(21,64,74)' />
+          <Line type='monotone' name='Incidencia' dataKey='incidencia' stroke='rgb(88, 131, 169)' />
+        </LineChart>
+      </ResponsiveContainer>
     </>
   )
 }

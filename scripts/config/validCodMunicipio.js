@@ -1,4 +1,4 @@
-export const validCodMunicipio = [3005,
+module.exports = [3005,
   3012,
   3015,
   3024,

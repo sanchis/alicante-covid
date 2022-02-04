@@ -23,7 +23,6 @@ module.exports = function getNewInfected () {
     .then(csv =>
       extractCsvData(csv.data, columns, columnsToExtract)
         .then(filterCityInAlicante)
-        .then(data => filterByLastMonths(data, 3))
         .then(data => {
           const result = []
           data.forEach(row => {

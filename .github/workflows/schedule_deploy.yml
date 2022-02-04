@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      env:
-        MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}
-        NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
+        env:
+          MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}
+          NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
 
       - run: npm install
       - run: npm run update-log

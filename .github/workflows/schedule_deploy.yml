@@ -11,6 +11,9 @@ jobs:
       NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: prod
+
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
 

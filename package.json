@@ -1,6 +1,6 @@
 {
   "name": "covid-alicante",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,8 @@
     "start": "next start",
     "update-log": "node ./scripts/index.js",
     "debug": "NODE_OPTIONS='--inspect' next dev",
-    "lint": "next lint && standard"
+    "lint": "next lint && standard",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "just-debounce-it": "3.0.1",
@@ -28,6 +29,7 @@
     "dotenv": "15.0.0",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.4",
+    "next-sitemap": "^2.1.8",
     "standard": "16.0.3"
   },
   "eslintConfig": {

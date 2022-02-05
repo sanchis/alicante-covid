@@ -1,11 +1,6 @@
 
-require('dotenv/config')
-const isBefore = require('date-fns/isBefore')
-const subMonths = require('date-fns/subMonths')
 const extractCsvData = require('./utils/csv')
 const axios = require('axios')
-
-const { dateParse } = require('./utils/date')
 
 const columns = ['provinciaIso', 'sexo', 'grupoEdad', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef']
 const columnsToExtract = ['provinciaIso', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef']

@@ -7,9 +7,9 @@ class MyDocument extends Document {
         <Head>
           <meta name='description' content='Ultimas estadísticas sobre el covid en la ciudad de Alicante. Información sobre todos los municipios de la ciudad de Alicante' />
 
-          <link rel='icon' type='image/png' sizes='32x32' href='icon-32x32.png' />
-          <link rel='icon' type='image/png' sizes='96x96' href='icon-96x96.png' />
-          <link rel='icon' type='image/png' sizes='16x16' href='icon-16x16.png' />
+          <link rel='icon' type='image/png' sizes='32x32' href='./icon-32x32.png' />
+          <link rel='icon' type='image/png' sizes='96x96' href='./icon-96x96.png' />
+          <link rel='icon' type='image/png' sizes='16x16' href='./icon-16x16.png' />
 
           <meta property='og:description' content='Ultimas estadísticas sobre el covid en la ciudad de Alicante. Información sobre todos los municipios de la ciudad de Alicante' />
           <meta property='og:image' content='/oglogo.png' />

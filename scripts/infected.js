@@ -1,11 +1,6 @@
 
-require('dotenv/config')
-const isBefore = require('date-fns/isBefore')
-const subMonths = require('date-fns/subMonths')
 const extractCsvData = require('./utils/csv')
 const axios = require('axios')
-
-const { dateParse } = require('./utils/date')
 
 const columns = ['provinciaIso', 'sexo', 'grupoEdad', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef']
 const columnsToExtract = ['provinciaIso', 'fecha', 'numCasos', 'numHosp', 'numUci', 'numDef']
@@ -23,7 +18,6 @@ module.exports = function getNewInfected () {
     .then(csv =>
       extractCsvData(csv.data, columns, columnsToExtract)
         .then(filterCityInAlicante)
-        .then(data => filterByLastMonths(data, 3))
         .then(data => {
           const result = []
           data.forEach(row => {
@@ -50,8 +44,4 @@ module.exports = function getNewInfected () {
 
 function filterCityInAlicante (data) {
   return data.filter(resultData => resultData.provinciaIso === 'A')
-}
-
-function filterByLastMonths (data, lastMonthNumber) {
-  return data.filter(data => isBefore(subMonths(new Date(), lastMonthNumber), dateParse(data.fecha)))
 }

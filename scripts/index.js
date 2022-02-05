@@ -1,6 +1,7 @@
 const getNewInfected = require('./infected')
 const { getLastMunicipalitiesData } = require('./municipalities')
 const fs = require('fs')
+require('dotenv/config')
 
 async function main () {
   const infectedData = await getNewInfected()

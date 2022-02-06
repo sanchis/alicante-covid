@@ -1,4 +1,4 @@
-name: deploy-latest-log
+name: deploy-on-version
 on:
   push:
     tags:

@@ -1,4 +1,4 @@
-name: New Deploy
+name: deploy-latest-log
 on:
   schedule:
     - cron: '0 */6 * * 1-5'
@@ -10,9 +10,15 @@ jobs:
       MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}
       NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
     steps:
+      - name: 'Get Previous tag'
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+        with:
+          fallback: 1.0.0
+
       - uses: actions/checkout@v2
         with:
-          ref: prod
+          ref: ${{steps.previustag.outputs.tag}}
 
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit

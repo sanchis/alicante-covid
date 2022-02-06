@@ -10,14 +10,9 @@ jobs:
         with: 
           fetch-depth: 0
 
-      - name: Get latest tag
-        id: latestTag
-        run: |
-          echo "::set-output name=tag::$(git describe --abbrev=0 --tags)"
-          git describe --abbrev=0 --tags
-
       - name: Move specific tag
         run: |
+          tag=`git describe --abbrev=0 --tags`
           git checkout tags/${{ steps.latestTag.tag }}
           
       - name: Install dependencies 👨🏻‍💻

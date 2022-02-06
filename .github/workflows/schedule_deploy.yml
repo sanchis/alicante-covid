@@ -10,21 +10,23 @@ jobs:
       MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}
       NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
     steps:
-      - name: 'Get Previous tag'
-        id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          fallback: 1.0.0
-
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{steps.previustag.outputs.tag}}
+          fetch-depth: 0
+  
+      - name: Move latest tag
+        run: |
+          tag=`git describe --abbrev=0 --tags`
+          git checkout tags/$tag
 
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
 
-      - run: npm run update-log
-      - run: |
+
+      - name: Update latest number COVID-19
+        run: npm run update-log
+        run: |
           git config user.name cron-daily-update
           git config user.email cron@cron.com
           git add .

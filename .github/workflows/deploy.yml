@@ -9,11 +9,6 @@ jobs:
         uses: actions/checkout@v2
         with: 
           fetch-depth: 0
-
-      - name: Move specific tag
-        run: |
-          tag=`git describe --abbrev=0 --tags`
-          git checkout tags/$tag
           
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit

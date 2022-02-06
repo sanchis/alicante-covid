@@ -13,12 +13,14 @@ jobs:
         with: 
           fetch-depth: 0
 
-      - name: 'Get Previous tag'
-        id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
-        with:
-          fallback: 1.0.0
+      - name: Get latest tag
+        id: latestTag
+        run: echo "::set-output name=tag::$(git describe --abbrev=0 --tags)"
 
+      - name: Move specific tag
+        run: |
+          git checkout tags/${{ steps.latestTag.tag }}
+          
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
       

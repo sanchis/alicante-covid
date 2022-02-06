@@ -13,7 +13,7 @@ jobs:
       - name: Move specific tag
         run: |
           tag=`git describe --abbrev=0 --tags`
-          git checkout tags/${{ steps.latestTag.tag }}
+          git checkout tags/$tag
           
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit

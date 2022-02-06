@@ -1,8 +1,5 @@
-name: deploy-on-version
+name: deploy
 on:
-  push:
-    tags:
-      - v*
   workflow_dispatch: 
 jobs:
   deploy:

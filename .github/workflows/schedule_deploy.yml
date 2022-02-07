@@ -26,6 +26,8 @@ jobs:
 
       - name: Update latest number COVID-19
         run: npm run update-log
+
+      - name: Upload update log
         run: |
           git config user.name cron-daily-update
           git config user.email cron@cron.com

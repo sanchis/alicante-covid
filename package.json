@@ -11,7 +11,7 @@
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "lint": "next lint && standard",
     "postbuild": "next-sitemap",
-    "semantic-release": "semantic-release --dry-run"
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "just-debounce-it": "3.0.1",

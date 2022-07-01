@@ -23,7 +23,7 @@ jobs:
           git config user.name cron-daily-update
           git config user.email cron@cron.com
           git add .
-          git commit -m "Add report for today"
+          git commit -m "chore: Add report for today"
           git push
       
       - name: Run build 🏗

@@ -1,6 +1,6 @@
 {
   "name": "covid-alicante",
-  "version": "1.0.3",
+  "version": "0.0.0-development",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,8 @@
     "update-log": "node ./scripts/index.js",
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "lint": "next lint && standard",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "semantic-release": "semantic-release --dry-run"
   },
   "dependencies": {
     "just-debounce-it": "3.0.1",
@@ -30,6 +31,7 @@
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0",
     "next-sitemap": "^3.1.7",
+    "semantic-release": "^19.0.3",
     "standard": "17.0.0"
   },
   "eslintConfig": {
@@ -44,5 +46,14 @@
     "rules": {
       "@next/next/no-img-element": "off"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanchis/covid-alicante.git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }

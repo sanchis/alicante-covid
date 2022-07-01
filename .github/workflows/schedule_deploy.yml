@@ -7,7 +7,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      MUNICIPALITIES_URL: ${{ secrets.MUNICIPALITIES_URL }}
       NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
     steps:
       - name: Checkout

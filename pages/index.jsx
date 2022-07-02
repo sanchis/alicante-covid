@@ -1,7 +1,6 @@
 import NewInfectedChart from 'components/charts/NewInfectedChart'
-import newInfected from 'scripts/data/infected.json'
 import Head from 'next/head'
-
+import getNewInfected from '../scripts/infected'
 export default function Home ({ newInfected, municipalitiesData }) {
   return (
     <>
@@ -17,7 +16,7 @@ export default function Home ({ newInfected, municipalitiesData }) {
 export async function getStaticProps () {
   return {
     props: {
-      newInfected
+      newInfected: await getNewInfected()
     }
   }
 }

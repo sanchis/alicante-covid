@@ -4,6 +4,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      NEW_INFECTED_URL: ${{ secrets.NEW_INFECTED_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

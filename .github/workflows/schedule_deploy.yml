@@ -14,17 +14,6 @@ jobs:
 
       - name: Install dependencies 👨🏻‍💻
         run: npm ci --prefer-offline --no-audit
-
-      - name: Update latest number COVID-19
-        run: npm run update-log
-
-      - name: Upload update log
-        run: |
-          git config user.name cron-daily-update
-          git config user.email cron@cron.com
-          git add .
-          git commit -m "chore: Add report for today"
-          git push
       
       - name: Run build 🏗
         run: npm run build
@@ -32,8 +21,8 @@ jobs:
       - name: Run export 🚢
         run: npm run export
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4.3.4
-      #   with:
-      #     branch: gh-pages # The branch the action should deploy to.
-      #     folder: out # The folder the action should deploy.
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: out # The folder the action should deploy.

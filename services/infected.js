@@ -1,7 +1,7 @@
 
 const axios = require('axios')
 const { format, parseISO } = require('date-fns')
-
+let dataCached
 function extractInfected (data) {
   return data.map(record => ({
     id: record.at(0),
@@ -37,18 +37,21 @@ function extractZones (data) {
 /**
  * Get the infected people, hospital,uci and dead.
  */
-module.exports = function getNewInfected () {
-  if (!process.env.NEW_INFECTED_URL) {
-    return {
-      chart: []
-    }
+export function getNewInfected () {
+  if (dataCached) {
+    console.log('RETURN CACHED DATA')
+    return dataCached
   }
 
+  console.log('FETCH NEW DATA')
   return axios.get(process.env.NEW_INFECTED_URL)
     .then(({ data }) => data)
     .then(({ records }) => ({
       infected: extractInfected(records),
       zones: extractZones(records)
+    }))
+    .then(data => {
+      dataCached = data
+      return data
     })
-    )
 }

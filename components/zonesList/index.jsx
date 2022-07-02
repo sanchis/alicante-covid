@@ -29,14 +29,14 @@ export default function ZonesList ({ zonesData }) {
 
   return (
     <>
-      <h2 className={styles.header}>Información sobre distrito sanitarias</h2>
+      <h2 className={styles.header}>Información sobre distrito sanitarios</h2>
       <p className='text-cursive'>Datos de los últimos 14 días</p>
 
       <FilterZones onChangeOrderBy={(val) => setOrderBy(val)} onChangeSearchText={(val) => setSearchText(val.trim().toLowerCase())} />
       <div className={styles.cardContainer}>
         {zones
           .map(zn =>
-            <Card key={zn.name} onClick={() => router.push(`zone/${zn.id}`)}>
+            <Card key={zn.name} onClick={() => router.push(`zone/${zn.name}`)}>
               <h3>{zn.name}</h3>
               <h1 className='align-center'>{zn.positiveNumber}</h1>
               <small className={`align-center ${styles.descriptionLabel}`}>Positivos</small>

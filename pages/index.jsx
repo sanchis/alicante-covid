@@ -1,7 +1,8 @@
 import NewInfectedChart from 'components/charts/NewInfectedChart'
 import ZonesList from 'components/zonesList'
 import Head from 'next/head'
-import getNewInfected from 'services/infected'
+import { getNewInfected } from 'services/infected'
+
 export default function Home ({ infected, zones }) {
   return (
     <>

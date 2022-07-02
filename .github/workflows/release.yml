@@ -1,5 +1,5 @@
 
-name: Release
+name: Release (on main)
 on:
   push:
     branches:

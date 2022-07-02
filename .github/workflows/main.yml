@@ -1,4 +1,4 @@
-name: CD
+name: CD (on pr/main)
 on:
   pull_request:
     branches: [main]

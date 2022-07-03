@@ -20,7 +20,21 @@ jobs:
         run: npm run build
 
       - name: Lint
-        run: npm run lint   
+        run: npm run lint
+
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Release
+        if: github.ref == 'refs/heads/master'
+        needs: [CD]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
   # test:
   #   needs: [build]
   #   runs-on: ubuntu-latest

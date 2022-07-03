@@ -3,7 +3,7 @@ const withPlugins = require('next-compose-plugins')
 
 const nextConfig = {
   reactStrictMode: true,
-  trailingSlash: true
+  trailingSlash: false
 }
 
 module.exports = withPlugins([

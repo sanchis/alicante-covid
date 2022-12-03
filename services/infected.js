@@ -43,7 +43,7 @@ export function getNewInfected () {
     return dataCached
   }
 
-  console.log('FETCH NEW DATA')
+  console.log('FETCH NEW DATA', process.env.NEW_INFECTED_URL)
   return axios.get(process.env.NEW_INFECTED_URL)
     .then(({ data }) => data)
     .then(({ records }) => ({

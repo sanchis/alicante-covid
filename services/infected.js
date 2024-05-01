@@ -1,5 +1,4 @@
 
-const axios = require('axios')
 const { format, parseISO } = require('date-fns')
 let dataCached
 function extractInfected (data) {

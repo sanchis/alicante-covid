@@ -1,7 +1,7 @@
 name: deploy-latest-log
 on:
-  schedule:
-    - cron: "0 */6 * * 1-5"
+  # schedule: desactivado ya no se actualiza mas
+  # - cron: "0 */6 * * 1-5"
   workflow_dispatch:
 jobs:
   deploy:
